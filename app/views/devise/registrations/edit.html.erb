@@ -1,0 +1,65 @@
+<h2 class="text-2xl">Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-control">
+    <label class="input-group">
+      <span>Email</span>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"input input-bordered" %>
+    </label>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="mt-8">
+    <div class="form-control">
+      <%= f.label :password, class: "label" %> 
+      <i>(leave blank if you don't want to change it)</i><br />
+      <label class="input-group input-group-vertical">
+        <span>Password</span>
+        <%= f.password_field :password, autocomplete: "new-password",class: "input input-bordered" %>
+      </label>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="form-control mt-2">
+      <label class="input-group input-group-vertical">
+        <span>Confirm Password</span>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"input input-bordered" %>
+      </label>
+      <%= f.label :password_confirmation %><br />
+    </div>
+
+    <div class="form-control mt-2">
+      <%= f.label :current_password %>
+      <label class="input-group input-group-vertical">
+        <span>Confirm Password</span>
+        <%= f.password_field :current_password, autocomplete: "current-password",class:"input input-bordered" %>
+      </label>
+      <i>(we need your current password to confirm your changes)</i><br />
+    </div>
+  </div>
+
+
+  <div class="actions mt-8">
+    <%= f.submit "Update",class:"btn" %>
+  </div>
+
+<% end %>
+
+
+<br>
+<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class:"btn btn-error", method: :delete %>
+<br>
+<%= link_to :back do %>
+<svg class="w-4 inline mb-1" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+</svg>
+back
+<% end %>

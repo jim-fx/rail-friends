@@ -1,0 +1,12 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+
+    <%= render @friend %>
+
+    <%= link_to 'Edit this friend', edit_friend_path(@friend), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to 'Destroy this friend', friend_path(@friend), method: :delete, class: "btn-error mt-2 rounded-lg py-3 px-5 font-medium" %>
+    </div>
+    <%= link_to 'Back to friends', friends_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</div>

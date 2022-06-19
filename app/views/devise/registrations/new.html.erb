@@ -1,0 +1,49 @@
+<div class="mx-auto w-min">
+<h2 class="text-4xl bold">Sign up</h2>
+
+<br>
+
+<div class="p-4 rounded-xl bg-gray-100 w-min" style="background:hsl(var(--nf,var(--n))/0.1)">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+
+  <div class="field">
+    <label class="input-group">
+      <span>Email</span>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"input input-bordered" %>
+    </label>
+  </div>
+
+  <div class="form-control mt-8">
+    <label class="input-group">
+      <span>Password</span>
+      <%= f.password_field :password, autocomplete: "new-password",class:"input input-bordered" %>
+    </label>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+  </div>
+
+  <div class="form-control mt-2">
+
+    <label class="input-group">
+      <span>Confirm Password</span>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"input input-bordered" %>
+    </label>
+  </div>
+
+  <div class="actions mt-4">
+    <%= f.submit "Sign up",class:"btn" %>
+  </div>
+<% end %>
+
+</div>
+
+
+<%= render "devise/shared/error_messages", resource: resource %>
+
+<br>
+
+<%= render "devise/shared/links" %>
+
+</div>
