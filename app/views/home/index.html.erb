@@ -3,8 +3,14 @@
   <div class="hero-content text-center text-neutral-content">
     <div class="max-w-md">
       <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-      <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <button class="btn btn-primary">Get Started</button>
+      <p class="mb-5">You might have heard of "friends" or maybe already have some...</p>
+      <p class="mb-5">We help you keep your friends organized, think of us as "Friends 2.0"</p>
+
+
+      <% if user_signed_in? %>
+      <% else %>
+        <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>
